@@ -1,0 +1,303 @@
+/* Modifikasi Ekstrem: Desain Glassmorphism, Palet Soft Blue, Tipografi Elegan */
+:root {
+    --primary-color: #0a2e6e; /* Soft dark blue */
+    --accent-color: #f4d03f; /* Sunflower yellow accent */
+    --text-main: #2c3e50;
+    --text-muted: #546e7a;
+    --bg-gradient-1: #e0f2fe; /* Light soft blue */
+    --bg-gradient-2: #bae6fd;
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    line-height: 1.8;
+    background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Dekorasi Latar Belakang Estetis */
+.bg-shape {
+    position: fixed;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(80px);
+}
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(244, 208, 63, 0.3); /* Soft sunflower blur */
+    top: -100px;
+    right: -100px;
+}
+.shape-2 {
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.5);
+    bottom: -150px;
+    left: -150px;
+}
+
+h1, h2, h3, .logo, .quote-text {
+    font-family: 'Lora', serif;
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.container {
+    width: min(100% - 40px, 1100px);
+    margin: auto;
+}
+
+/* Komponen Glassmorphism */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--glass-shadow);
+}
+
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(74, 124, 157, 0.15);
+    border-color: var(--accent-color);
+}
+
+/* Navigasi */
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+nav {
+    display: flex;
+    gap: 25px;
+}
+nav a {
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+}
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 50px;
+}
+.avatar-container {
+    position: relative;
+}
+.avatar {
+    width: 220px;
+    height: 220px;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Organic shape */
+    background: linear-gradient(135deg, var(--primary-color), #7cb2ce);
+    color: white;
+    font-size: 72px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 15px 35px rgba(74, 124, 157, 0.3);
+    border: 8px solid rgba(255, 255, 255, 0.7);
+    animation: morph 8s ease-in-out infinite;
+}
+.sunflower-accent {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 40px;
+    color: var(--accent-color);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+@keyframes morph {
+    0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+    67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+}
+
+.eyebrow {
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: clamp(36px, 4vw, 54px);
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+.subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 30px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px rgba(74, 124, 157, 0.3);
+}
+.button:hover {
+    background: var(--accent-color);
+    color: var(--text-main);
+    transform: translateY(-3px);
+}
+
+/* Sections Umum */
+.section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Tabel Biodata */
+.tabel-biodata {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+.tabel-biodata th, .tabel-biodata td {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(74, 124, 157, 0.1);
+    font-size: 15px;
+}
+.tabel-biodata th {
+    text-align: left;
+    font-weight: 600;
+    width: 140px;
+}
+
+/* Kartu Grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.cards h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Kutipan Filosofi */
+.quote-container {
+    text-align: center;
+    position: relative;
+    padding: 60px 40px;
+}
+.quote-icon {
+    font-size: 100px;
+    font-family: 'Lora', serif;
+    color: var(--accent-color);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+    line-height: 1;
+}
+.quote-text {
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 20px;
+    color: var(--text-main);
+}
+
+/* Footer & Kontak */
+.center-text {
+    text-align: center;
+}
+.contact-links {
+    margin-top: 20px;
+    font-size: 18px;
+}
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+/* Responsif */
+@media (max-width: 850px) {
+    .nav-wrap { flex-direction: column; gap: 15px; }
+    .hero-content { flex-direction: column; text-align: center; padding: 30px 20px; }
+    .split-layout { grid-template-columns: 1fr; }
+    nav { justify-content: center; }
+}
